@@ -5,8 +5,9 @@
 ## Features
 So far,it supports outlier-detection and data regression which are the basic of prediction.
 
-* Fast Fourier Transformation outlier detection
+* Fast Fourier Transformation outlier detection.
 * Outlier detection based on median, also it's a median filter to fill missing value.
+* Outlier detection by N sigma.
 
 ## How to use
 * detecting outliers by fft.
@@ -14,10 +15,15 @@ So far,it supports outlier-detection and data regression which are the basic of 
 outlier_positions = detect_by_fft(datas, 200)
 ```
 
-* 
+* median filter
 ```python
     for ii in range(0, len(data), window_size):
         median_filtered_signal += get_median_filtered(np.asanyarray(data[ii: ii + window_size])).tolist()
+```
+
+* detecting by N sigma
+```python
+outlier_positions = detect_by_nsigma(datas, 3)
 ```
 
 
